@@ -4,7 +4,7 @@ const valor = process.argv[2];
 const moedaOrigem = process.argv[3];
 const moedaDestino = process.argv[4];
 
-function isValidyCurrency(code) {
+function isValidCurrency(code) {
   return /^[a-zA-Z]{3}$/.test(code);
 }
 

@@ -1,4 +1,5 @@
-#!/usr/bin/ env node
+#!/usr/bin/env node
+import axios from 'axios';
 
 const valor = process.argv[2];
 const moedaOrigem = process.argv[3]?.trim();
@@ -6,21 +7,37 @@ const moedaDestino = process.argv[4]?.trim();
 
 /**
  *
- * @param {string} valor - O valor da moeda a ser validado.
+ * @param {string} value - O valor da moeda a ser validado.
  * @returns {boolean} Retorna true se o código for validado,false caso contrário.
  */
-function isValidCurrency(valor) {
-  return /^[a-zA-Z]{3}$/.test(code);
+function isValidCurrency(value) {
+  return /^[a-zA-Z]{3}$/.test(value);
 }
 
 /**
  *
- * @param {string} valor - O valor numérico em formato string a ser validado
+ * @param {string} value - O valor numérico em formato string a ser validado
  * @returns {boolean} Retorna true se o valor tiver duas casas decimais, fale caso contrário.
  */
 
-function hasMaxTwoDecimals(valor) {
-  return /^\d+(\.\d{1,2})?$/.test(valor);
+function hasMaxTwoDecimals(value) {
+  return /^\d+(\.\d{1,2})?$/.test(value);
+}
+
+async function fetchCurrencyConverter(value, moedaOrigem, moedaDestino) {
+  try {
+    const resultado = await axios.get(
+      `https://api.frankfurter.app/latest?amount=${value}&from=${moedaOrigem}&to=${moedaDestino}`
+    );
+    const { rates } = resultado.data;
+    const convertedValue = rates[moedaDestino];
+    console.log(
+      `O valor ${value} ${moedaOrigem} convertido para ${moedaDestino} é de`,
+      convertedValue.toFixed(2)
+    );
+  } catch (err) {
+    console.log('Erro:', err);
+  }
 }
 
 if (!valor || isNaN(valor) || valor <= 0 || !hasMaxTwoDecimals(valor)) {
@@ -51,6 +68,8 @@ if (moedaOrigem === moedaDestino) {
   process.exit(1);
 }
 
-console.log(valor);
-console.log(moedaOrigem);
-console.log(moedaDestino);
+fetchCurrencyConverter(
+  valor,
+  moedaOrigem.toUpperCase(),
+  moedaDestino.toUpperCase()
+);

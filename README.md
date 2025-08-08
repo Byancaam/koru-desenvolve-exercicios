@@ -7,19 +7,27 @@ Cada exercício está em uma branch separada, com seu próprio código e README 
 
 ## 📂 Lista de Exercícios
 
-### 1️⃣ Soma de Números
+### 1️⃣ CLI para Soma de Números
 
-**Branch:** `feat/somaNumeros`  
+**Branch:** `feat/soma-numeros`  
 **Descrição:** Implementa função simples para somar dois números informados pelo usuário no terminal.  
 📄 [Acessar README da branch](https://github.com/Byancaam/koru-desenvolve-exercicios/tree/feat/somaNumeros)
 
 ---
 
-### 2️⃣ CLI BuscaCep
+### 2️⃣ CLI para consultar CEP
 
 **Branch:** `feat/buscaCep`  
 **Descrição:** CLI em Node.js para consulta de CEP usando a API ViaCEP com Axios, validação e saída formatada no terminal.  
 📄 [Acessar README da branch](https://github.com/Byancaam/koru-desenvolve-exercicios/tree/feat/buscaCep)
+
+---
+
+### 3️⃣ CLI para converter dados de Câmbio
+
+**Branch:** `feat/dados-de-cambio`  
+**Descrição:** CLI em Node.js para converter valores entre moedas usando a API Frankfurter, com validações de entrada e saída formatada no terminal.  
+📄 [Acessar README da branch](https://github.com/Byancaam/koru-desenvolve-exercicios/tree/feat/dados-de-cambio)
 
 ---
 

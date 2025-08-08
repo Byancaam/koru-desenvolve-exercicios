@@ -10,7 +10,6 @@ Ferramenta de linha de comando para converter valores entre moedas usando a API 
 
 - Node.js instalado
 - Conexão com internet para acessar a API
--
 
 ### Executando 🖥️
 

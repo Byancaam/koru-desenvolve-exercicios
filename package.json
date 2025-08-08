@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Este repositório contém os exercícios práticos desenvolvidos no **Programa Desenvolve - Grupo Boticário**.  \r Cada exercício está em uma branch separada, com seu próprio código e README explicativo.",
   "dependencies": {
-    "axios": "^1.11.0"
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1"
   }
 }

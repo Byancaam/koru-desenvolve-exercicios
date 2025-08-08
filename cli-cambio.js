@@ -1,16 +1,20 @@
 #!/usr/bin/ env node
 
 const valor = process.argv[2];
-const moedaOrigem = process.argv[3];
-const moedaDestino = process.argv[4];
+const moedaOrigem = process.argv[3]?.trim();
+const moedaDestino = process.argv[4]?.trim();
 
 function isValidCurrency(code) {
   return /^[a-zA-Z]{3}$/.test(code);
 }
 
-if (!valor || isNaN(valor) || valor <= 0) {
+function hasMaxTwoDecimals(valor) {
+  return /^\d+(\.\d{1,2})?$/.test(valor);
+}
+
+if (!valor || isNaN(valor) || valor <= 0 || !hasMaxTwoDecimals(valor)) {
   console.log(
-    '⚠️  Insira um valor positivo e diferente de zero para o valor a ser convertido!'
+    '⚠️  Insira um valor positivo, diferente de zero e com no máximo duas casas decimais para a operação de conversão de câmbio!'
   );
   process.exit(1);
 }

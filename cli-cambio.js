@@ -4,9 +4,20 @@ const valor = process.argv[2];
 const moedaOrigem = process.argv[3]?.trim();
 const moedaDestino = process.argv[4]?.trim();
 
-function isValidCurrency(code) {
+/**
+ *
+ * @param {string} valor - O valor da moeda a ser validado.
+ * @returns {boolean} Retorna true se o código for validado,false caso contrário.
+ */
+function isValidCurrency(valor) {
   return /^[a-zA-Z]{3}$/.test(code);
 }
+
+/**
+ *
+ * @param {string} valor - O valor numérico em formato string a ser validado
+ * @returns {boolean} Retorna true se o valor tiver duas casas decimais, fale caso contrário.
+ */
 
 function hasMaxTwoDecimals(valor) {
   return /^\d+(\.\d{1,2})?$/.test(valor);

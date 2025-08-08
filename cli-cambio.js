@@ -9,17 +9,21 @@ function isValidCurrency(code) {
 }
 
 if (!valor || isNaN(valor)) {
-  console.log('⚠️  É necessário informar um valor numerico para conversão!');
+  console.log('⚠️  É necessário informar um valor numérico para conversão!');
   process.exit(1);
 }
 
-if (!moedaOrigem || !isValidyCurrency(moedaOrigem)) {
-  console.log('⚠️  É necessário informar a moeda de origem a ser convertida!');
+if (!moedaOrigem || !isValidCurrency(moedaOrigem)) {
+  console.log(
+    '⚠️  É necessário informar um valor válido moeda de origem a ser convertida! - Ex: USD, BRL'
+  );
   process.exit(1);
 }
 
-if (!moedaDestino || !isValidyCurrency(moedaDestino)) {
-  console.log('⚠️  É necessário informar a moeda de destino para a conversão!');
+if (!moedaDestino || !isValidCurrency(moedaDestino)) {
+  console.log(
+    '⚠️  É necessário informar um valor válido moeda de destino para a conversão! - Ex: USD, BRL'
+  );
   process.exit(1);
 }
 
